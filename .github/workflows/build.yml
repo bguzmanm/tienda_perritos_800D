@@ -65,6 +65,6 @@ jobs:
             
             aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
             docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda/front-end:latest
-            docker stop tienda/front-end || true
-            docker rm tienda/front-end || true
-            docker run -d --name tienda/front-end -p 80:80 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda/front-end:latest
+            docker stop tienda-front-end || true
+            docker rm tienda-front-end || true
+            docker run -d --name tienda-front-end -p 80:80 ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda/front-end:latest
